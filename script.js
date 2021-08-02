@@ -882,4 +882,3 @@ function iniciar(){
 window.addEventListener("load", iniciar);
 */
 
-console.log("git push");
