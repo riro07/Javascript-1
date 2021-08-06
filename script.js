@@ -1,39 +1,263 @@
 
 /*
-    PROGRAMAR ES COMO DECIRLE A ALGUIEN QUE NO SABE NADA DE X TEMA COMO PROCEDER PASITO A PASITO
-*/
-/*
-////////////////////////////////////////////////////////////////////////////// Variables
+//////////////////////////////////// Variables: var, let, const ///////////////////////////////////
 
-let edadRafa = 10;
-let notasRafa = "Super Sobresaliente";
+var saludoVar = "Hola var";
+let saludoLet = "Hola let";
+const SALUDOCONST = "Hola const";
+
+console.log(saludoVar);
+console.log(saludoLet);
+console.log(SALUDOCONST);
+
+function saludar(){
+    
+    console.log(saludoVar);
+    
+    console.log(saludoLet);
+    
+    console.log(SALUDOCONST);
+
+};
+saludar();
+
+//////////// Cadenas de texto (string) y plantillas de cadena de texto (template strings) //////////
+
+const HOLA = "hola";
+
+let cadenaTexto = "Hola como estas pa? Esta es una cadena de texto denominada en el bajo mundo como string"
+let templateString = `Hola esto es una template string y tengo muchas diferencias con la cadena de texto
+normal, como este el salto de linea, tambien puedo llamar variables asi: ${HOLA}.`;
+
+console.log(templateString)
+
+////////////////////////////////////////// Numeros (numbers) //////////////////////////////////////
 
 
-edadRafa = 18;
-notasRafa = "Mega sobrelaliente";
+let a = 2;
+//Objeto Number
+let b = new Number(1);
+let c = 5.29;
+let d = "5.23";
+
+console.log(a, b);
+console.log(c.toFixed(1));
+console.log(c.toFixed(5));
+// Imprime la parte entera
+console.log(parseInt(c));
+// Imprime la toda la variable
+console.log(parseFloat(c));
+console.log(typeof(d), typeof(c));
+console.log(a + b);
+console.log(c + parseInt(d));
+console.log(c + parseFloat(d));
+console.log(c + Number.parseInt(d));
+console.log(c + Number.parseFloat(d));
 
 
-console.log("Datos Rafa: edad: "+edadRafa+" notas: "+notasRafa);
+///////////////////////////////////////////// Booleanos ////////////////////////////////////////////
+
+let verdadero = true;
+let falso = false;
+let v = Boolean(true);
+let f = Boolean(false);
+
+console.log(verdadero, falso, v, f);
+console.log(typeof(verdadero), typeof falso);
+
+console.log(Boolean(0));
+console.log(Boolean(-7));
+console.log(Boolean(""));
+
+// valores que dan "true" a un if
+
+// if (true)
+// if ({})
+// if ([])
+// if (42)
+// if ("foo")
+// if (new Date())
+// if (-42)
+// if (3.14)
+// if (-3.14)
+// if (Infinity)
+// if (-Infinity)
+
+// valores que dan "false" a un if
+
+// if (false)
+// if (null)
+// if (undefined)
+// if (0)
+// if (-0)
+// if (0n)
+// if (NaN)
+// if ("")
 
 
-///////////////////////////////////////////////////////////////////// Cadenas de texto
+////////////////////////////////////// undefined, null y NaN //////////////////////////////////////
 
-const descripcionRafa = "Rafa le gusta jugar mucho con el celular. Con la famili no tanto. Y con Miguel Angel se lleva no tan bien, pero es su hermanito. Con sus perro juega mucho y le da de comer a los gatos y al perro muy seguido "
+// undefined indica que no se ha inicializado una variable y que el valor está ausente.
 
-console.log("Descripcion de rafa: "+descripcionRafa);
+let indefinida;
+console.log(indefinida);
 
-///////////////////////////////////////////////////////////////////////////// Booleanos
+// null es un valor especial que indica la ausencia de un valor.
 
-let vF = true;
+let nulo = null;
+console.log(nulo);
 
-///////////////////////////////////////////////////////////////////////////////////// Arrays
+// NaN - Not a Number.
 
-let cartuchera = [["lapiz", "goma", "cutuchuchillo"], ["tu hermana", 6]];
+let noEsUnNumero = "hola" * 3;
+console.log(noEsUnNumero);
 
-console.log(cartuchera[1][1]);
+////////////////////////////////////////// Funciones /////////////////////////////////////////////
+
+// Una función es un bloque de código, autocontenido que se puede definir una vez y ejecutar en cualquier
+// momento. Opcionalmente, una función puede aceptar parámetros y devolver un valor.
+// Las funciones en javascript son objetos, un tipo especial de objetos:
+// Se dice que las funciones son ciudadanos de primera clase por que pueden asignarse a un valor, y 
+// pueden pasarse como argumentos y usarse como un valor de retorno.
+
+// Función declarada
+
+function estoEsUnaFuncion(){
+    console.log("Uno");
+    console.log("Dos");
+    console.log("Tres");
+};
+
+// Invocación de función
+
+estoEsUnaFuncion();
+estoEsUnaFuncion();
+
+function unaFuncionQueDevuelveValor(){
+    console.log("Uno");
+    console.log("Dos");
+    console.log("Tres");
+    return "La funcion a retornado una cadena de texto";
+}
+
+// let valorDeFuncion = unaFuncionQueDevuelveValor();
+// console.log(valorDeFuncion);
+
+function saludar (nombre="Desconocido", edad=0){
+    console.log(`Hola mi nombre es ${nombre} y tengo ${edad} años.`);
+}
+
+saludar("Gabriel", 24);
+saludar();
+
+// funciones declaradas vs funciones expresadas
+
+funcionDeclarada();
+function funcionDeclarada(){
+    console.log("Esto es una funcion declarada, puede invocarse en cualquier parte de nuestro codigo, incluso antes de que la función sea declarada.");
+}
+funcionDeclarada();
+
+// función anónima
+
+//funcionExpresada();
+const funcionExpresada = function (){
+    console.log("Esto es una función expresada, es decir, una función que se ha asignado como valor a una variable, si invocamos a esta función antes de su definición JS nos dira...");
+}
+
+funcionExpresada();
+
+///////////////////////////////////////// Arrglos (Arrays) ////////////////////////////////////////
+
+const a = [];
+const b = [1, true, "HOLA", ["A", "B", "C", [1, 2, 3]]];
 
 
-////////////////////////////////////////////////////////////////// Condicionales y Bucles
+console.log(a);
+console.log(b);
+console.log(b.length);
+console.log(b[2]);
+console.log(b[0]);
+console.log(b[3]);
+console.log(b[3][2]);
+console.log(b[3][3][0]);
+
+const c = Array.of("X", "Y", "Z", 9, 8, 7);
+console.log(c);
+
+const d = Array(100).fill(false);   
+console.log(d);
+
+const e = new Array();
+console.log(e);
+
+const f = new Array(1, 2, 3, true, false);
+console.log(f);
+
+const colores = ["Rojo", "Verde", "Azul"];
+console.log(colores);
+
+colores.push("Negro");
+console.log(colores);
+colores.pop();
+console.log(colores);
+
+colores.forEach(function(elemento, index){
+    console.log(`<li id="${index}">${elemento}</li>`);
+});
+
+///////////////////////////////////////// Objetos (objets) //////////////////////////////
+
+let a = new String();
+//console.log(a);
+
+const b = {};
+console.log(b);
+
+const c = new Object();
+console.log(c);
+
+// Dentro de un objeto a las variables se las van a llamar atributos/propiedades y a las funciones
+// se las llama métodos
+
+const gabriel = {
+    nombre: "Gabriel",
+    apellido: "Mendoza",
+    edad: 24,
+    pasatiempos: ["Correr", "Hacer ejercicios", "Practicar guitarra"],
+    soltero: true,
+    contacto:{
+        email:"gabriel3@gmail.com",
+        twitter: "@gabti",
+        movil: 1122334433
+    },
+    saludar(){
+        console.log("Hola!");
+    },
+    decirMiNombre(){
+        console.log(`Hola me llamo ${this.nombre} ${this.apellido} y tengo ${this.edad} años`);
+    }
+}
+
+console.log(gabriel);
+console.log(gabriel["nombre"]);
+console.log(gabriel["apellido"]);
+console.log(gabriel.nombre);
+console.log(gabriel.apellido);
+console.log(gabriel.edad);
+console.log(gabriel.soltero);
+console.log(gabriel.pasatiempos);
+console.log(gabriel.pasatiempos[1]);
+console.log(gabriel.contacto);
+console.log(gabriel.contacto.twitter);
+gabriel.saludar();
+gabriel.decirMiNombre();
+
+console.log(Object.keys(gabriel));
+console.log(Object.values(gabriel));
+console.log(gabriel.hasOwnProperty("nombre"));
+console.log(gabriel.hasOwnProperty("nacimiento"));
+
 //////////////////////////////////////////////////// Instrucciones de transferencia de control
 
 let numeroAzar = 11; 
