@@ -1,5 +1,7 @@
 
 /*
+//////////////////////////--------------- TIPOS DE DATOS --------------////////////////////////////
+
 //////////////////////////////////// Variables: var, let, const ///////////////////////////////////
 
 var saludoVar = "Hola var";
@@ -258,7 +260,255 @@ console.log(Object.values(gabriel));
 console.log(gabriel.hasOwnProperty("nombre"));
 console.log(gabriel.hasOwnProperty("nacimiento"));
 
-//////////////////////////////////////////////////// Instrucciones de transferencia de control
+/////////////////////////-------------- ESTRUCTURAS DE CONTROL --------------/////////////////////////
+
+////////////////////////////////////// Tipos de operadores ////////////////////////////////////////
+
+// Operadores 
+// Aritméticos: + - * / % ()
+
+let a = 5 + (5 - 10) * 3;
+let modulo = 5 % 2;
+
+console.log(a);
+console.log(modulo);
+
+// Relacionales: > < >= <= == === != !==
+
+console.log(8 > 9);
+console.log(9 > 8);
+console.log(8 >= 9);
+console.log(9 >= 8);
+console.log(7 < 7);
+console.log(7 <= 7);
+
+// = 1 es igual a asignación de variable 
+// == 2 iguales es comparación de valores
+// === 3 iguales es comparación de tipo de dato y de valor
+
+console.log(7 == 7);
+console.log("7" == 7);
+console.log(0 == false);
+
+console.log(7 === 7);
+console.log("7" === 7);
+console.log(0 === false);
+
+// Incremento Decremento
+
+let i = 2;
+
+console.log(i++);
+console.log(++i);
+
+i = i + 2;
+i *= 3;
+
+// Operador unario
+
+i++;
+i--;
+++i;
+--i;
+
+console.log(i);
+
+// Lógicos
+
+// ! <= Not: Niega, es decir lo que es verdadero lo vuelve falso y viceversa.
+// || <= Or: Cuando tengo 2 o más condiciones, con que una cumpla, es decir sea verdadera, el OR será
+//           verdadero.
+// && <= And: Cuando tengo 2 o más condiciones, todas tienen que complirse, es decir ser verdaderas,
+//           para que AND se valide.
+
+console.log(!true);
+console.log(!false);
+console.log((9 === 9) || ("9" === 9));
+console.log((9 === 9) && ("9" === 9));
+console.log((9 === 9) && ("9" === "9"));
+
+////////////////////////////////////////// Condicionales ///////////////////////////////////////////
+
+// if - else
+
+let edad = 17;
+
+if(edad > 17){
+    console.log("Eres mayor de edad");
+}else{
+    console.log("Eres menor de edad");
+}
+
+if(edad >= 18){
+    console.log("Eres mayor de edad");
+}else{
+    console.log("Eres menor de edad");
+}
+
+if(edad < 18){
+    console.log("Eres menor de edad");
+}else{
+    console.log("Eres mayor de edad");
+}
+
+if(edad <= 17){
+    console.log("Eres menor de edad");
+}else{
+    console.log("Eres mayor de edad");
+}
+
+// if - else if - else
+
+// Déjame Dormir - 0hrs - 5hrs
+// Buenos Dias - 6hrs - 11hrs
+// Buenas Tardes - 12hrs - 18hrs
+// Buenas Noches - 19hrs - 23hrs
+
+let hora = 20;
+
+if(hora >= 0 && hora <= 5){
+    console.log("Déjame dormir");
+}else if(hora >= 6 && hora <= 11){
+    console.log("Buenos Dias");
+}else if(hora >= 12 && hora <= 18){
+    console.log("Buenas Tardes");
+}else{
+    console.log("Buenas Noches");
+}
+
+if(hora < 6){
+    console.log("Déjame Dormir");
+}else if(hora > 5 && hora < 12){
+    console.log("Buenos Dias");
+}else if(hora > 11 && hora < 19){
+    console.log("Buenas Tardes");
+}else{
+    console.log("Buenas Noches");
+}
+
+// Operador Ternario (condición)? verdadero: falso
+
+console.log("Operador Ternario");
+let eresMayor = (edad >= 18)?"Eres mayor de edad":"Eres menor de edad";
+console.log(eresMayor);
+
+
+let dia = 5;
+
+// Domingo - 0
+// Lunes - 1
+// Martes - 2
+// Miércoles -3
+// Jueves - 4
+// Viernes -5
+// Sábado - 6
+
+switch(dia){
+    case 0:
+        console.log("Domingo");
+        break;
+    case 1:
+        console.log("Lunes");
+        break;
+    case 2:
+        console.log("Martes");
+        break;
+    case 3:
+        console.log("Miércoles");
+        break;
+    case 4:
+        console.log("Jueves");
+        break;
+    case 5:
+        console.log("Viernes");
+        break;
+    case 6:
+        console.log("Sábado");
+        break;
+    default:
+        console.log("Valor nulo");
+}
+
+/////////////////////////////////////////// Ciclos (Loops) ///////////////////////////////////////// 
+
+let contador = 0;
+
+while(contador < 10){
+    console.log("while " + contador);
+    contador++;
+}
+
+do{
+    console.log("do while " + contador);
+    contador++;
+}while(contador < 10);
+
+// for(inicialización de variable; condición; decremento o incremento){
+//     sentecia que ejecuta el for
+//     sentecia que ejecuta el for
+//     sentecia que ejecuta el for
+// }
+
+for(let i = 0; i < 10; i++){
+    console.log("for " + i);
+}
+
+let numeros = [10, 20, 30, 40, 50, 60, 70, 80, 90, 100];
+
+for(let i = 0; i < numeros.length; i++){
+    console.log(numeros[i]);
+}
+
+const gabi = {
+    nombre: "Gabriel",
+    apellido: "Mendoza",
+    edad: 24
+}
+
+// imprime las propiedades de un objeto
+for(const propiedad in gabi){
+    console.log(`Key:${propiedad}, Value:${gabi[propiedad]}`);
+} 
+
+// Imprime los numeros dentro de la variable array
+for(const elemento of numeros){
+    console.log(elemento);
+}
+
+let cadena = "Hola mundo";
+
+// imprime las letras de la string, lo recorre letra por letra y lo muestra
+for(const caracter of cadena){
+    console.log(caracter);
+}
+
+//////////////////////////////////////// Manejo de errores /////////////////////////////////////////
+
+try{
+    console.log("En el Try se agrega el código a evaluar");
+    noExiste;
+    console.log("Segundo mensaje en el try");
+}catch(error){
+    console.log("Catch, captura cualquier error surgido o lanzado en el try");
+    console.log(error)
+}finally{
+    console.log("El bloque finally se ejecutará siempre al final de unbloque try-catch");
+}
+
+try{
+    let numero = "y";
+
+    if(isNaN(numero)){
+        throw new Error("El caractér introducido no es un Número");
+    }
+
+    console.log(numero * numero);
+}catch(error){
+    console.log(`Se produjo el siguiente error: ${error}`);
+}
+
+
+///////////////////////////////////////// Instrucciones de transferencia de control
 
 let numeroAzar = 11; 
 let condena = 10;
