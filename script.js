@@ -508,6 +508,82 @@ try{
 }
 
 
+//////////////////////////////////////// Break & Continue ///////////////////////////////////////
+
+const numeros = [1, 2, 3, 4, 5, 6, 7, 8, 9, 0];
+
+for(let i = 0; i < numeros.length; i++){
+    if(i === 5){
+        console.log("break");
+        break;
+    }
+    console.log(i);
+}
+
+for(let i = 0; i < numeros.length; i++){
+    if(i === 5){
+        console.log("continue");
+        continue;
+    }
+    console.log(i);
+}
+/////////////////////////////////////// Objetos Literales //////////////////////////////////////
+
+let nombre = "Titan", edad = "Die";
+
+const perro = {
+    nombre: nombre,
+    edad: edad,
+    ladrar: function (){
+        console.log("Guauuuu Guauuu");
+    }
+}
+
+console.log(perro);
+perro.ladrar();
+
+const dog = {
+    nombre,
+    edad,
+    raza: "Callejero",
+    ladrar(){
+        console.log(){
+            console.log("Guauuuuuu Guauuuuu");
+        }
+    }
+}
+
+console.log(dog);
+dog.ladrar();
+
+///////////////////////////////////////// Destructuración ///////////////////////////////////////
+
+const numeros = [1, 2, 3];
+
+// Sin destructuración
+
+let uno = numeros[0],
+dos = numeros[1],
+tres = numeros[2];
+
+console.log(uno, dos, tres);
+
+// Con destructuración
+
+const [one, two, three] = numeros;
+
+console.log(one, two, three);
+
+const persona = {
+    nombre: "Gabriel",
+    apellido: "Mendoza",
+    edad: 24
+};
+
+const {nombre, apellido, edad} = persona;
+
+console.log(nombre, apellido, edad);
+
 ///////////////////////////////////////// Instrucciones de transferencia de control
 
 let numeroAzar = 11; 
