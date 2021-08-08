@@ -584,7 +584,98 @@ const {nombre, apellido, edad} = persona;
 
 console.log(nombre, apellido, edad);
 
-///////////////////////////////////////// Instrucciones de transferencia de control
+//////////////////////////////// Parámetros REST & Operador Spread /////////////////////////////
+
+// Parametros REST: Captura un tercer dato de magnitud desconocida y lo aplica a la funcion tratandolo
+// como un arreglo(array)
+
+function sumar(a, b, ...c){
+    let resultado = a + b;
+
+    c.forEach(function(n){
+        resultado += n;
+    })
+
+    return resultado;
+}
+
+console.log(sumar(1, 2));
+console.log(sumar(1, 2, 3));
+console.log(sumar(1, 2, 3, 4));
+console.log(sumar(1, 2, 3, 4, 5));
+console.log(sumar(1, 2, 3, 4, 5, 6));
+console.log(sumar(1, 2, 3, 4, 5, 6, 7));
+
+// Operador de propagacion o spreat operator: Nueva forma de sumar arreglos
+
+let array1 = [1, 2, 3, 4, 5],
+    array2 = [6, 7, 8, 9, 0];
+
+console.log(array1, array2);
+
+let array3 = [...array1, ...array2];
+console.log(array3);
+
+/////////////////////////////////////// Arrow function ////////////////////////////////////
+
+// Arrow function => funciones flecha. Las arrow function toman siempre como padre a window. 
+// Las funciones declaradas respetan el ambito donde fue declarada.
+
+function saludar(){
+    console.log("Hola")
+} 
+
+saludar();
+
+let saludarA = () => console.log("Hola Arrow Function");
+
+saludarA();
+
+function saludar1 (a){
+    console.log(`Hola ${a}`);
+}
+saludar1("Pepa");
+
+
+let saludarA1 = a => console.log(`Hola ${a}`);
+
+saludarA1("Arrow");
+
+function saludar2 (a, b){
+    console.log(`Hola ${a}`);
+    console.log(`Hola ${b}`);
+}
+
+saludar2("Pepa", "Pipo");
+
+let saludarA2 = (a, b) => {
+    console.log(`Hola Arrow function ${a}`)
+    console.log(`Hola Arrow function ${b}`)
+}
+saludarA2(1, 2);    
+
+let objetoEjemplo = {
+    nombre: "Pepito",
+    correr(){
+        console.log("Corriendo... (esto no es una arrow function)")
+    }
+}
+
+let nombres = ["gabe", "ana", "gabi", "colo", "renat"];
+
+nombres.forEach((index, elemento)=>console.log(`Nombre ${elemento}: ${index}`));
+
+functionDeclarada = () => console.log("Esto es una funcion declarada");
+
+functionDeclarada();
+
+objetoEjemplo.correr();
+
+*/
+
+/////////////////////////////--------------- Practícas ---------------////////////////////////////
+
+// Instrucciones de transferencia de control
 
 let numeroAzar = 11; 
 let condena = 10;
@@ -736,13 +827,6 @@ function calcularGordura(){
     }
 
 };
-
-
-
-
-
-
-/////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 // undefined es un valor asignado por javascript cuando no se le da valor
 // a la variable definida . (variable vacia)
@@ -949,7 +1033,6 @@ array2.forEach(function (element, index){
     console.log(`Palabra numero ${index+1}: ${element}`)
 })
 
-//...........................................................................................................
 // Objetos literales: Agiliza el proceso de escritura
 
 let nombre = "paco", edad = 5;
@@ -977,88 +1060,6 @@ perro.ladrar()
 
 dog.ladrar()
 
-// Parametros REST: Captura un tercer dato de magnitud desconocida y lo aplica a la funcion tratandolo
-// como un arreglo(array)
-
-function sumar(a, b, ...c){
-    let resultado = a+b;
-    c.forEach(function(contenidoC){
-        resultado += contenidoC;
-    })
-    return resultado;
-}
-
-console.log(sumar(1, 2));
-console.log(sumar(1, 2, 3));
-console.log(sumar(1, 2, 3, 4));
-console.log(sumar(1, 2, 3, 4, 5));
-
-// Operador de propagacion o spreat operator: Nueva forma de sumar arreglos
-
-let array1 = [1, 2, 3, 4, 5],
-    array2 = [6, 7, 8, 9, 0];
-
-console.log(array1, array2);
-
-let array3 = [...array1, ...array2];
-console.log(array3);
-
-// Arrow function => funciones flecha. Las arrow function toman siempre como padre a window. 
-// Las funciones declaradas respetan el ambito donde fue declarada.
-
-function saludar(){
-    console.log("Hola")
-} 
-
-saludar();
-
-let saludarA = () => console.log("Hola Arrow Function");
-
-saludarA();
-
-function saludar1 (a){
-    console.log(`Hola ${a}`);
-}
-saludar1("Pepa");
-
-
-let saludarA1 = a => console.log(`Hola ${a}`);
-
-saludarA1("Arrow");
-
-function saludar2 (a, b){
-    console.log(`Hola ${a}`);
-    console.log(`Hola ${b}`);
-}
-
-saludar2("Pepa", "Pipo");
-
-let saludarA2 = (a, b) => {
-    console.log(`Hola Arrow function ${a}`)
-    console.log(`Hola Arrow function ${b}`)
-}
-saludarA2(1, 2);    
-
-let objetoEjemplo = {
-    nombre: "Pepito",
-    correr(){
-        console.log("Corriendo... (esto no es una arrow function)")
-    }
-}
-
-let nombres = ["gabe", "ana", "gabi", "colo", "renat"];
-
-nombres.forEach((index, elemento)=>console.log(`Nombre ${elemento}: ${index}`));
-
-functionDeclarada = () => console.log("Esto es una funcion declarada");
-
-functionDeclarada();
-
-objetoEjemplo.correr();
-
-
-//---------------------------------------------------------------------------------------------------------
-//Practicas
 
 let operadorPropagacion = ["hola", "como", "estas", "tu", "en"];
 let operadorPropagacion1 = ["este", "dia", "tan", "especial", "proda"];
@@ -1430,5 +1431,3 @@ function iniciar(){
 }
 
 window.addEventListener("load", iniciar);
-*/
-
